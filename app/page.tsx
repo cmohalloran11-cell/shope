@@ -16,21 +16,21 @@ const BRANDS = [
     line: "Performance zero-turns & utility vehicles",
     blurb:
       "Built for serious cut quality and ground speed. The mower for landscapers and large properties.",
-    img: "https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?auto=format&fit=crop&w=1600&q=80",
+    tag: "Mowers · UTVs",
   },
   {
     name: "Toro",
     line: "Residential & commercial mowers",
     blurb:
       "A name homeowners and crews have trusted for generations. Walk-behinds, riders, zero-turns.",
-    img: "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1600&q=80",
+    tag: "Walk · Ride · Zero-Turn",
   },
   {
     name: "Exmark",
     line: "Professional-grade equipment",
     blurb:
       "The pro landscaper's brand. Engineered for daily commercial use and long service life.",
-    img: "https://images.unsplash.com/photo-1591291621164-2c6367723315?auto=format&fit=crop&w=1600&q=80",
+    tag: "Commercial Grade",
   },
 ];
 
@@ -285,15 +285,30 @@ export default function Page() {
             {BRANDS.map((b, i) => (
               <article
                 key={b.name}
-                className="brand-panel relative bg-navy aspect-[3/4.2] overflow-hidden tile-lift"
+                className="relative bg-navy overflow-hidden tile-lift aspect-[3/4.2] group"
                 data-reveal
                 style={{ ["--reveal-delay" as any]: `${i * 120}ms` }}
               >
+                {/* layered backdrop — gradient + giant outline numeral, no photo */}
                 <div
-                  className="brand-img absolute inset-0 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${b.img}')` }}
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 80% 0%, rgba(36,54,99,0.7) 0%, rgba(15,26,46,0) 55%), linear-gradient(180deg, rgba(15,26,46,0) 40%, rgba(10,19,34,0.85) 100%)",
+                  }}
                 />
-                <div className="brand-overlay absolute inset-0" />
+                <span
+                  aria-hidden
+                  className="absolute -bottom-12 -right-6 font-display font-black text-bone/[0.05] leading-none select-none pointer-events-none"
+                  style={{ fontSize: "clamp(14rem, 28vw, 22rem)" }}
+                >
+                  0{i + 1}
+                </span>
+                <span
+                  aria-hidden
+                  className="absolute top-7 left-7 right-7 h-px bg-bone/15 origin-left transition-transform duration-700 group-hover:scale-x-100 scale-x-100"
+                />
+
                 <div className="absolute inset-0 p-7 lg:p-9 flex flex-col justify-between text-bone">
                   <div className="flex items-start justify-between">
                     <span className="numeral text-bone/55 text-sm">
@@ -304,13 +319,17 @@ export default function Page() {
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display font-black uppercase text-bone text-[clamp(2.6rem,5vw,4.4rem)] leading-[0.9] tracking-tight">
+                    <span className="block eyebrow-quiet text-ember text-[0.62rem] mb-4">
+                      {b.tag}
+                    </span>
+                    <h3 className="font-display font-black uppercase text-bone text-[clamp(2.8rem,5.4vw,4.8rem)] leading-[0.88] tracking-tight">
                       {b.name}
                     </h3>
-                    <p className="mt-3 text-bone/85 text-sm uppercase tracking-[0.14em] font-semibold">
+                    <div className="mt-5 h-px w-12 bg-ember" />
+                    <p className="mt-5 text-bone/85 text-sm uppercase tracking-[0.14em] font-semibold">
                       {b.line}
                     </p>
-                    <p className="mt-5 text-bone/75 text-[0.98rem] leading-relaxed max-w-sm">
+                    <p className="mt-5 text-bone/70 text-[0.98rem] leading-relaxed max-w-sm">
                       {b.blurb}
                     </p>
                   </div>
