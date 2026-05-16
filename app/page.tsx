@@ -234,14 +234,6 @@ export default function Page() {
                       loading={i < 2 ? "eager" : "lazy"}
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
                     />
-                    {/* bottom navy fade — masks any baked-in Facebook marketing text */}
-                    <div
-                      className="absolute inset-x-0 bottom-0 h-[38%] pointer-events-none"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(15,26,46,0) 0%, rgba(15,26,46,0.55) 55%, rgba(15,26,46,0.95) 100%)",
-                      }}
-                    />
                     {/* faint hairline border */}
                     <div className="absolute inset-0 ring-1 ring-bone/10 pointer-events-none" />
                   </div>
