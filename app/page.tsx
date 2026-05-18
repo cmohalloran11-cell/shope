@@ -223,7 +223,7 @@ export default function Page() {
                 {HERO_COLLAGE.map((p, i) => (
                   <div
                     key={p.src}
-                    className="relative aspect-square overflow-hidden bg-navy-800 group"
+                    className="relative overflow-hidden bg-navy-800 group"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -232,7 +232,7 @@ export default function Page() {
                       width={206}
                       height={206}
                       loading={i < 2 ? "eager" : "lazy"}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
+                      className="block w-full h-auto transition-transform duration-[1200ms] group-hover:scale-[1.04]"
                     />
                     {/* faint hairline border */}
                     <div className="absolute inset-0 ring-1 ring-bone/10 pointer-events-none" />
