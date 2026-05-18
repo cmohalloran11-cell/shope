@@ -237,10 +237,10 @@ export default function Page() {
                         width={206}
                         height={206}
                         loading={i < 2 ? "eager" : "lazy"}
-                        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04] ${
+                        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ${
                           isStihlTrimmer
-                            ? "object-top scale-[1.22] origin-top"
-                            : "object-center"
+                            ? "object-top scale-[1.22] origin-top group-hover:scale-[1.30]"
+                            : "object-center group-hover:scale-[1.04]"
                         }`}
                       />
                       {/* faint hairline border */}
